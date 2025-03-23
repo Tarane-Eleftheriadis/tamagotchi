@@ -1,0 +1,122 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Fredoka", sans-serif;
+    background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+}
+h1, h2{
+    text-align: center;
+}
+.create-tamagotchi-div{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin: 3% 0;
+}
+
+.tamagotchi-name-input{
+    width: 200px;
+    height: 50px;
+    padding: 0% 2%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: rgba(128, 128, 128, 0.432) 4px 4px 4px -2px;
+}
+.animal-type-dropdown{
+    border-radius: 10px;
+    padding: 0% 2%;
+    border: none;
+    box-shadow: rgba(128, 128, 128, 0.432) 4px 4px 4px -2px;
+}
+.create-tamagotchi-button {
+    height: 50px;
+    padding: 0% 2%;      
+    background-color: rgba(141, 251, 141, 0.856);     
+    box-shadow: rgba(128, 128, 128, 0.432) 4px 4px 4px -2px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+
+.tamagotchi-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.tamagotchi-device{
+    height: 340px;
+    width: 300px;
+    background-color:rgba(200, 67, 255, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% / 60% 60% 40% 40%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+     
+}
+.tamagotchi-device2{
+    height: 340px;
+    width: 300px;
+    background-color:rgba(200, 67, 255, 0.85);
+    color: rgb(70, 152, 206);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% / 60% 60% 40% 40%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.tamagotchi-device3{
+    height: 340px;
+    width: 300px;
+    background-color:rgba(200, 67, 255, 0.85);
+    color: rgb(70, 152, 206);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% / 60% 60% 40% 40%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.tamagotchi-device4{
+    height: 340px;
+    width: 300px;
+    background-color:rgba(200, 67, 255, 0.85);
+    color: rgb(70, 152, 206);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% / 60% 60% 40% 40%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.tamagotchi-display{
+    height: 150px;
+    width: 190px;
+    background-color: #f7fcff;
+    border: 3px solid rgb(71, 71, 71, 0.25) ;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 50%;
+}
+.middle-button{
+	margin-top: 10px;
+}
+.button-activity{
+    height: 40px;
+    width: 40px;
+    box-shadow: rgba(0, 0, 255, 0.1) 4px 4px 4px;
+    background-color: rgba(252, 237, 123, 0.847);
+    cursor: pointer;
+    border-style: none;
+    border-radius: 50%;
+}
+
+
