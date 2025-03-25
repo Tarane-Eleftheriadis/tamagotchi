@@ -7,7 +7,7 @@ body{
 h1, h2{
     text-align: center;
 }
-.create-tamagotchi-div{
+.create-tamagotchi-input-field{
     display: flex;
     justify-content: center;
     gap: 2%;
@@ -22,7 +22,7 @@ h1, h2{
     border: none;
     box-shadow: rgba(128, 128, 128, 0.432) 4px 4px 4px -2px;
 }
-.animal-type-dropdown{
+.tamagotchi-type-dropdown{
     border-radius: 10px;
     padding: 0% 2%;
     border: none;
@@ -43,6 +43,9 @@ h1, h2{
     flex-direction: row;
     justify-content: space-evenly;
 }
+.hide{
+    visibility: hidden;
+}
 
 .tamagotchi-device{
     height: 340px;
@@ -56,43 +59,10 @@ h1, h2{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
      
 }
-.tamagotchi-device2{
-    height: 340px;
-    width: 300px;
-    background-color:rgba(200, 67, 255, 0.85);
-    color: rgb(70, 152, 206);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50% / 60% 60% 40% 40%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.tamagotchi-device3{
-    height: 340px;
-    width: 300px;
-    background-color:rgba(200, 67, 255, 0.85);
-    color: rgb(70, 152, 206);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50% / 60% 60% 40% 40%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.tamagotchi-device4{
-    height: 340px;
-    width: 300px;
-    background-color:rgba(200, 67, 255, 0.85);
-    color: rgb(70, 152, 206);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50% / 60% 60% 40% 40%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
 .tamagotchi-display{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     height: 150px;
     width: 190px;
     background-color: #f7fcff;

@@ -12,20 +12,20 @@
 </head>
 <body>
     <h1>Tamagotchi</h1>
-    <div class="create-tamagotchi-div">
+    <div class="create-tamagotchi-input-field">
         <input type="text" id="tamagotchi-name-input" class="tamagotchi-name-input" placeholder="Ange namn">
-        <select id="animal-type-dropdown" class="animal-type-dropdown">
+        <select id="tamagotchi-type-dropdown" class="tamagotchi-type-dropdown">
             <option value="" disabled selected>Välj din Tamagotchi</option>
             <option value="dog">Hund</option>
             <option value="unicorn">Enhörning</option>
             <option value="elk">Älg</option>
             <option value="bear">Björn</option>
         </select>
-        <button class="create-tamagotchi-button">Skapa</button>
+        <button class="create-tamagotchi-button" id="create-tamagotchi-button">Skapa</button>
     </div>
-    <div class="tamagotchi-box">
-        <div class="tamagotchi-device">
-            <p>Namn</p>
+    <div class="tamagotchi-box" id="tamagotchi-box">
+        <div class="tamagotchi-device hide" id="tamagotchi-device">
+            <p class="tamagotchi-device-name" id="tamagotchi-device-name">Namn</p>
             <div class="tamagotchi-display" id="tamagotchi-display"></div>
             <div class="buttons-container">
                 <div>
@@ -45,9 +45,6 @@
                 </div>
             </div>
         </div>
-        <div class="tamagotchi-device2"></div>
-        <div class="tamagotchi-device3"></div>
-        <div class="tamagotchi-device4"></div>
     </div>
 
     <h2>Aktivitetslogg</h2>
