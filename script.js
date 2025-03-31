@@ -35,8 +35,7 @@ class Tamagotchi {
     this.energy = 50;
     this.fullness = 50;
     this.happiness = 50;
-    this.id = Date.now();
-    this.timer = null;
+    this.id = name;
 
     this.createTamagotchiDOM();
     this.startTimer();
@@ -111,22 +110,22 @@ class Tamagotchi {
 
   nap() {
     this.updateStats({ energy: +40, happiness: -10, fullness: -10 });
-    this.logActivity(`Du tog en tupplur med ${this.name}.`);
+    this.logActivity(`Du tog en tupplur med ${this.name}.😴`);
   }
 
   play() {
     this.updateStats({ happiness: +30, energy: -10, fullness: -10 });
-    this.logActivity(`Du lekte med ${this.name}.`);
+    this.logActivity(`Du lekte med ${this.name}.🎮`);
   }
 
   eat() {
     this.updateStats({ fullness: +30, happiness: +5, energy: -15 });
-    this.logActivity(`Du matatde ${this.name}.`);
+    this.logActivity(`Du matade ${this.name}.🍔`);
   }
 
   checkStatus() {
     if (this.energy === 0 || this.fullness === 0 || this.happiness === 0) {
-      this.logActivity(`${this.name} sprang iväg pågrund av misskötsel 💔`);
+      this.logActivity(`${this.name} sprang iväg på grund av misskötsel 💔`);
       this.remove();
     }
   }
