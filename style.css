@@ -22,6 +22,7 @@ h1, h2{
     border: none;
     box-shadow: rgba(128, 128, 128, 0.432) 4px 4px 4px -2px;
 }
+
 .tamagotchi-type-dropdown{
     border-radius: 10px;
     padding: 0% 2%;
@@ -36,15 +37,12 @@ h1, h2{
     border: none;
     border-radius: 10px;
     cursor: pointer;
- }
+}
 
-.tamagotchi-box{
+.tamagotchi-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-.hide{
-    visibility: hidden;
 }
 
 .tamagotchi-device{
@@ -61,14 +59,18 @@ h1, h2{
 }
 .tamagotchi-display{
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     height: 150px;
     width: 190px;
     background-color: #f7fcff;
     border: 3px solid rgb(71, 71, 71, 0.25) ;
     border-radius: 10px;
     margin-bottom: 5%;
+}
+.tamagotchi-results{
+    line-height: 1px;
 }
 .buttons-container{
     display: flex;
@@ -88,5 +90,11 @@ h1, h2{
     border-style: none;
     border-radius: 50%;
 }
-
+.history{
+    background-color: white;
+    width: 40%;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 2%;
+}
 

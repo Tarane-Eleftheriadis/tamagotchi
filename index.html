@@ -18,37 +18,15 @@
             <option value="" disabled selected>Välj din Tamagotchi</option>
             <option value="dog">Hund</option>
             <option value="unicorn">Enhörning</option>
-            <option value="elk">Älg</option>
+            <option value="chick">Kyckling</option>
             <option value="bear">Björn</option>
         </select>
         <button class="create-tamagotchi-button" id="create-tamagotchi-button">Skapa</button>
     </div>
-    <div class="tamagotchi-box" id="tamagotchi-box">
-        <div class="tamagotchi-device hide" id="tamagotchi-device">
-            <p class="tamagotchi-device-name" id="tamagotchi-device-name">Namn</p>
-            <div class="tamagotchi-display" id="tamagotchi-display"></div>
-            <div class="buttons-container">
-                <div>
-                    <button class="button-activity eat">
-                        <img src="/img/burger.png" alt="" width="25px">
-                    </button>
-                </div>
-                <div class="middle-button">
-                    <button class="button-activity nap">
-                        <img src="/img/moon.png" alt="" width="25px">
-                    </button>
-                </div>
-                <div>
-                    <button class="button-activity play">
-                        <img src="/img/heart.png" alt="" width="25px">
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="tamagotchi-container" id="tamagotchi-container"></div>
 
     <h2>Aktivitetslogg</h2>
-    <div id="history"></div>
+    <div id="history" class="history"></div>
 
 </body>
 </html>
