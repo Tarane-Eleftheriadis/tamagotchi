@@ -69,6 +69,12 @@ h1, h2{
     border-radius: 10px;
     margin-bottom: 5%;
 }
+.tamagotchi-device-name{
+    color: yellow;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgb(255, 0, 255), 0 0 10px rgb(255, 0, 255), 0 0 15px rgb(255, 0, 255);
+
+}
 .tamagotchi-results{
     line-height: 1px;
 }

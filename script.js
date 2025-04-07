@@ -1,7 +1,6 @@
-
-const createBtn = document.querySelector("#create-tamagotchi-button");
 const nameInput = document.querySelector("#tamagotchi-name-input");
 const typeInput = document.querySelector("#tamagotchi-type-dropdown");
+const createBtn = document.querySelector("#create-tamagotchi-button");
 const tamagotchiContainer = document.querySelector("#tamagotchi-container");
 const historyLog = document.querySelector("#history");
 
@@ -9,20 +8,26 @@ let tamagotchis = [];
 
 const createTamagotchi = () => {
   const name = nameInput.value;
-  const type = typeInput.value;
+  const animalType = typeInput.value;
 
-  if (!name || !type) {
-    alert("Du måste ange namn och välja en Tamagotchi 😊");
+  if (!name || !animalType) {
+    alert("Du måste ange namn och välja en Tamagotchi");
+    return;
+  }
+
+  if (tamagotchis.some(t => t.name === name)) {
+    alert("Det finns redan en Tamagotchi med det namnet, välj ett annat namn!");
     return;
   }
 
   if (tamagotchis.length >= 4) {
-    alert("Du kan bara ha 4 tamagotchis åt gången!");
+    alert("Du kan bara ha 4 Tamagotchis åt gången!");
     return;
   }
 
-  const newTamagotchi = new Tamagotchi(name, type);
+  const newTamagotchi = new Tamagotchi(name, animalType);
   tamagotchis.push(newTamagotchi);
+  console.log(tamagotchis)
 
   nameInput.value = "";
   typeInput.value = "";
@@ -42,9 +47,9 @@ class Tamagotchi {
   }
 
   createTamagotchiDOM() {
-    this.element = document.createElement("div");
-    this.element.classList.add("tamagotchi-device");
-    this.element.innerHTML = `
+    this.tamagotchiDevice = document.createElement("div");
+    this.tamagotchiDevice.classList.add("tamagotchi-device");
+    this.tamagotchiDevice.innerHTML = `
       <p class="tamagotchi-device-name">${this.name}</p>
       <div class="tamagotchi-display">
         <img src="/img/${this.animalType}.png" height="80" alt="${this.animalType}" />
@@ -73,73 +78,64 @@ class Tamagotchi {
       </div>
     `;
   
-    this.element.querySelector(".eat").addEventListener("click", () => this.eat());
-    this.element.querySelector(".nap").addEventListener("click", () => this.nap());
-    this.element.querySelector(".play").addEventListener("click", () => this.play());
-  
-    tamagotchiContainer.append(this.element);
-    this.updateResult();
-  }
-  
-  updateResult() {
-    this.element.querySelector(".energy").textContent = this.energy;
-    this.element.querySelector(".fullness").textContent = this.fullness;
-    this.element.querySelector(".happiness").textContent = this.happiness;
-  }
-  
+    this.tamagotchiDevice.querySelector(".eat").addEventListener("click", () => {
+      this.updateLifeStatus({ fullness: +30, happiness: +5, energy: -15 });
+      this.logActivity(`Du matade ${this.name}.`);
+    });
 
-  logActivity(message) {
-    const log = document.createElement("p");
-    log.textContent = message;
-    historyLog.prepend(log);
+    this.tamagotchiDevice.querySelector(".nap").addEventListener("click", () => {
+      this.updateLifeStatus({ energy: +40, happiness: -10, fullness: -10 });
+      this.logActivity(`Du tog en tupplur med ${this.name}.`);
+    });
+
+    this.tamagotchiDevice.querySelector(".play").addEventListener("click", () => {
+      this.updateLifeStatus({ happiness: +30, energy: -10, fullness: -10 });
+      this.logActivity(`Du lekte med ${this.name}.`);
+    });
+  
+    tamagotchiContainer.append(this.tamagotchiDevice);
+    this.lifeStatus();
+  }
+  
+  lifeStatus() {
+    this.tamagotchiDevice.querySelector(".energy").textContent = this.energy;
+    this.tamagotchiDevice.querySelector(".fullness").textContent = this.fullness;
+    this.tamagotchiDevice.querySelector(".happiness").textContent = this.happiness;
   }
 
-  updateStats(delta) {
-    this.energy += delta.energy || 0;
-    this.fullness += delta.fullness || 0;
-    this.happiness += delta.happiness || 0;
+  updateLifeStatus(changes) {
+    this.energy = this.energy + changes.energy;
+    this.fullness = this.fullness + changes.fullness;
+    this.happiness = this.happiness + changes.happiness;
   
     this.energy = Math.min(Math.max(this.energy, 0), 100);
     this.fullness = Math.min(Math.max(this.fullness, 0), 100);
     this.happiness = Math.min(Math.max(this.happiness, 0), 100);
   
-    this.updateResult();
+    this.lifeStatus();
     this.checkStatus();
-  }
-  
-
-  nap() {
-    this.updateStats({ energy: +40, happiness: -10, fullness: -10 });
-    this.logActivity(`Du tog en tupplur med ${this.name}.😴`);
-  }
-
-  play() {
-    this.updateStats({ happiness: +30, energy: -10, fullness: -10 });
-    this.logActivity(`Du lekte med ${this.name}.🎮`);
-  }
-
-  eat() {
-    this.updateStats({ fullness: +30, happiness: +5, energy: -15 });
-    this.logActivity(`Du matade ${this.name}.🍔`);
   }
 
   checkStatus() {
     if (this.energy === 0 || this.fullness === 0 || this.happiness === 0) {
-      this.logActivity(`${this.name} sprang iväg på grund av misskötsel 💔`);
-      this.remove();
+      this.logActivity(`${this.name} tröttnade på livet här och drog vidare.. `);
+      
+      clearInterval(this.timer);
+      this.tamagotchiDevice.remove();
+      tamagotchis = tamagotchis.filter(t => t.id !== this.id);
     }
   }
 
   startTimer() {
     this.timer = setInterval(() => {
-      this.updateStats({ energy: -15, fullness: -15, happiness: -15 });
+      this.updateLifeStatus({ energy: -15, fullness: -15, happiness: -15 });
     }, 10000);
   }
 
-  remove() {
-    clearInterval(this.timer);
-    this.element.remove();
-    tamagotchis = tamagotchis.filter(t => t.id !== this.id);
+  logActivity(message) {
+    const log = document.createElement("p");
+    log.textContent = message;
+    historyLog.prepend(log);
   }
 }
 
