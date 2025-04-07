@@ -96,6 +96,11 @@ h1, h2{
     border-style: none;
     border-radius: 50%;
 }
+.button-activity:hover {
+   
+    transform: scale(1.2); 
+    box-shadow: 0 0 10px rgb(255, 252, 100);
+  }
 .history{
     background-color: white;
     width: 40%;
